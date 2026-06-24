@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: #7c3aed;
+  --color-primary-light: #a78bfa;
+  --color-secondary: #f97316;
+  --color-secondary-light: #fdba74;
+  --color-accent: #06b6d4;
+  --color-accent-light: #67e8f9;
+  --color-pink: #ec4899;
+  --color-pink-light: #f9a8d4;
+  --color-surface: #fefce8;
+  --color-surface-alt: #fdf4ff;
+  --color-muted: #6b7280;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #fffbf0;
+  --foreground: #1e1b4b;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.gradient-hero {
+  background: linear-gradient(135deg, #fdf4ff 0%, #fefce8 50%, #ecfdf5 100%);
+}
+
+.gradient-card-1 {
+  background: linear-gradient(135deg, #ede9fe 0%, #fce7f3 100%);
+}
+
+.gradient-card-2 {
+  background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+}
+
+.gradient-card-3 {
+  background: linear-gradient(135deg, #cffafe 0%, #e0e7ff 100%);
+}
+
+.gradient-card-4 {
+  background: linear-gradient(135deg, #d1fae5 0%, #cffafe 100%);
+}
