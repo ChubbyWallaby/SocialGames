@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "FAQ",
-  description: "Frequently asked questions about Confide — WhatsApp social games.",
+  title: "FAQ — How to Play Social Games on WhatsApp",
+  description: "How does Confide work? Learn about async WhatsApp group games, pricing, time zones, game types, and how to join a social deduction game with friends.",
 };
 
 const WHATSAPP_URL = "https://wa.me/351912990758?text=Hi!%20I%20have%20a%20question%20about%20Confide";
@@ -82,11 +82,13 @@ export default function FaqPage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              FAQ
+              Frequently Asked Questions
             </span>
           </h1>
-          <p className="text-lg text-muted">
-            Everything you need to know before your first game.
+          <p className="text-lg text-muted max-w-xl mx-auto">
+            How do social deduction games work on WhatsApp? What do you need to
+            play? Here&apos;s everything you need to know about Confide —
+            async group games for friends, families, and remote teams.
           </p>
         </div>
 

@@ -4,13 +4,13 @@ import { games } from "@/lib/games";
 import { TickerBand1, TickerBand2 } from "@/app/background-sentences";
 
 export const metadata: Metadata = {
-  title: "All Games",
+  title: "WhatsApp Social Deduction Games for Friends | Play Async",
   description:
-    "Browse 9 unique WhatsApp social games: deduction, strategy, trading, puzzles, and political intrigue. 5-8 players, fully async, 5-7 days each.",
+    "9 social deduction and strategy games to play on WhatsApp with friends. Hidden roles, alliances, trading, and betrayal — fully async, no downloads, works across time zones.",
   openGraph: {
-    title: "All Games — Confide",
+    title: "WhatsApp Social Deduction Games for Friends — Confide",
     description:
-      "9 async social games for WhatsApp. From chill puzzles to full-drama betrayal.",
+      "9 async social games for WhatsApp groups. Mafia, Survivor, and Traitors-style gameplay for 5-8 friends — no apps, no video calls required.",
   },
 };
 
@@ -44,16 +44,27 @@ export default function GamesPage() {
   return (
     <div className="py-12 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-6">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Our Games
+              WhatsApp Games for Friends
             </span>
           </h1>
           <p className="text-lg text-muted max-w-2xl mx-auto">
-            9 unique social games designed for WhatsApp. Each one runs 5-7 days
-            and works completely async — no one needs to be online at the same
-            time.
+            9 social deduction and strategy games you can play entirely on
+            WhatsApp. Each game runs 5-7 days and works completely async — no
+            one needs to be online at the same time.
+          </p>
+        </div>
+
+        <div className="max-w-3xl mx-auto mb-12 text-center">
+          <p className="text-muted">
+            Inspired by games like The Traitors, Mafia, Werewolf, and Survivor.
+            Hidden roles, secret alliances, bluffing, and betrayal — but
+            designed for busy people who can&apos;t always be in the same room or
+            timezone. Every action has a multi-hour window so you play on your
+            own schedule. Perfect for remote friend groups, distributed teams,
+            and anyone who loves deception games but hates scheduling.
           </p>
         </div>
 
