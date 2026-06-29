@@ -83,6 +83,12 @@ function Navbar() {
             Games
           </Link>
           <Link
+            href="/blog"
+            className="text-sm font-medium text-muted hover:text-primary transition-colors"
+          >
+            Blog
+          </Link>
+          <Link
             href="/faq"
             className="text-sm font-medium text-muted hover:text-primary transition-colors"
           >
@@ -126,8 +132,8 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/events" className="hover:text-primary transition-colors">
-                  In-Person Events
+                <Link href="/blog" className="hover:text-primary transition-colors">
+                  Blog
                 </Link>
               </li>
             </ul>
