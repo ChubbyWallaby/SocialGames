@@ -1,0 +1,41 @@
+import { MetadataRoute } from "next";
+import { getAllSlugs } from "@/lib/games";
+
+const BASE_URL = "https://playconfide.com";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const gamePages = getAllSlugs().map((slug) => ({
+    url: `${BASE_URL}/games/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  return [
+    {
+      url: BASE_URL,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+    {
+      url: `${BASE_URL}/games`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/faq`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/events`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+    ...gamePages,
+  ];
+}

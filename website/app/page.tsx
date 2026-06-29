@@ -1,15 +1,13 @@
 import Link from "next/link";
+import { TickerBand1, TickerBand2, TickerBand3 } from "@/app/background-sentences";
+
+const WHATSAPP_URL = "https://wa.me/351912990758?text=Hi!%20I%27d%20like%20to%20join%20a%20Confide%20session";
 
 export default function Home() {
   return (
     <div>
       <section className="min-h-[90vh] flex items-center justify-center gradient-hero px-4">
         <div className="text-center max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-purple-200 text-sm font-medium text-primary mb-8">
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            Now accepting players
-          </div>
-
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-6">
             <span className="bg-gradient-to-r from-primary via-pink to-secondary bg-clip-text text-transparent">
               Play Together.
@@ -24,21 +22,25 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold text-lg rounded-2xl hover:scale-105 hover:shadow-lg hover:shadow-green-200 transition-all"
+            >
+              Join via WhatsApp
+            </a>
             <Link
               href="/games"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-bold text-lg rounded-2xl hover:scale-105 hover:shadow-lg hover:shadow-purple-200 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border-2 border-primary text-primary font-bold text-lg rounded-2xl hover:scale-105 hover:shadow-lg hover:shadow-purple-100 transition-all"
             >
-              📱 WhatsApp Games
-            </Link>
-            <Link
-              href="/events"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border-2 border-secondary text-secondary font-bold text-lg rounded-2xl hover:scale-105 hover:shadow-lg hover:shadow-orange-100 transition-all"
-            >
-              🎉 In-Person Events
+              Browse Games
             </Link>
           </div>
         </div>
       </section>
+
+      <TickerBand1 />
 
       <section className="min-h-screen flex items-center justify-center px-4 py-20">
         <div className="text-center max-w-3xl">
@@ -74,6 +76,8 @@ export default function Home() {
         </div>
       </section>
 
+      <TickerBand2 />
+
       <section className="min-h-screen flex items-center justify-center px-4 py-20 bg-white/50">
         <div className="text-center max-w-2xl">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -107,19 +111,22 @@ export default function Home() {
         </div>
       </section>
 
+      <TickerBand3 />
+
       <section className="min-h-[60vh] flex items-center justify-center px-4 py-20">
         <div className="text-center max-w-xl">
-          <p className="text-6xl mb-6">🎲</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Ready?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Ready to play?</h2>
           <p className="text-lg text-muted mb-10">
-            Browse our collection. Find the perfect game for your group.
+            Send us a message on WhatsApp and we&apos;ll get you into the next game.
           </p>
-          <Link
-            href="/games"
-            className="inline-flex items-center gap-2 px-10 py-5 bg-primary text-white font-bold text-xl rounded-2xl hover:scale-105 hover:shadow-xl hover:shadow-purple-200 transition-all"
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-10 py-5 bg-[#25D366] text-white font-bold text-xl rounded-2xl hover:scale-105 hover:shadow-xl hover:shadow-green-200 transition-all"
           >
-            Explore Games →
-          </Link>
+            Message us on WhatsApp
+          </a>
         </div>
       </section>
     </div>

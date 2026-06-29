@@ -1,4 +1,14 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "In-Person Events",
+  description:
+    "Live social game nights in Lisbon. The same WhatsApp games you love — face-to-face, with drinks, and higher stakes. Coming 2026.",
+  robots: {
+    index: false,
+  },
+};
 
 export default function EventsPage() {
   return (

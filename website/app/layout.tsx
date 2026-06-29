@@ -14,9 +14,42 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Social Games — Play Together, Anywhere",
+  metadataBase: new URL("https://playconfide.com"),
+  title: {
+    default: "Confide — Play Together, Anywhere",
+    template: "%s — Confide",
+  },
   description:
-    "WhatsApp-based social games and in-person events for groups of 5-8 players. Fully async, no apps needed.",
+    "WhatsApp-based social games for groups of 5-8 players. Fully async, no apps needed. €1 per person.",
+  openGraph: {
+    type: "website",
+    siteName: "Confide",
+    title: "Confide — Play Together, Anywhere",
+    description:
+      "Social deduction, strategy, and betrayal games that run entirely on WhatsApp. 5-8 players, 5-7 days, fully async.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Confide — Play Together, Anywhere",
+    description:
+      "Social deduction, strategy, and betrayal games that run entirely on WhatsApp. 5-8 players, 5-7 days, fully async.",
+  },
+  keywords: [
+    "confide",
+    "whatsapp games",
+    "async games",
+    "social deduction",
+    "group games",
+    "remote games",
+    "party games online",
+    "the mole game",
+    "survivor game whatsapp",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 function Navbar() {
@@ -26,7 +59,7 @@ function Navbar() {
         <Link href="/" className="flex items-center gap-2 text-xl font-bold">
           <span className="text-2xl">🎲</span>
           <span className="bg-gradient-to-r from-primary to-pink bg-clip-text text-transparent">
-            Social Games
+            Confide
           </span>
         </Link>
         <div className="flex items-center gap-6">
@@ -37,17 +70,19 @@ function Navbar() {
             Games
           </Link>
           <Link
-            href="/events"
+            href="/faq"
             className="text-sm font-medium text-muted hover:text-primary transition-colors"
           >
-            Events
+            FAQ
           </Link>
-          <Link
-            href="/games"
-            className="px-4 py-2 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary-light transition-colors"
+          <a
+            href="https://wa.me/351912990758?text=Hi!%20I%27d%20like%20to%20join%20a%20Confide%20session"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 bg-[#25D366] text-white text-sm font-semibold rounded-full hover:opacity-90 transition-opacity"
           >
-            Play Now
-          </Link>
+            Join Now
+          </a>
         </div>
       </div>
     </nav>
@@ -62,7 +97,7 @@ function Footer() {
           <div>
             <div className="flex items-center gap-2 text-lg font-bold mb-3">
               <span className="text-xl">🎲</span>
-              <span>Social Games</span>
+              <span>Confide</span>
             </div>
             <p className="text-sm text-muted">
               Play together from anywhere. No apps, no downloads — just
@@ -88,20 +123,20 @@ function Footer() {
             <h4 className="font-semibold mb-3">Info</h4>
             <ul className="space-y-2 text-sm text-muted">
               <li>
-                <span className="hover:text-primary transition-colors cursor-pointer">
+                <Link href="/faq" className="hover:text-primary transition-colors">
                   How It Works
-                </span>
+                </Link>
               </li>
               <li>
-                <span className="hover:text-primary transition-colors cursor-pointer">
+                <Link href="/faq" className="hover:text-primary transition-colors">
                   FAQ
-                </span>
+                </Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="mt-8 pt-6 border-t border-purple-100 text-center text-xs text-muted">
-          © 2026 Social Games. Made with 💜 in Lisbon.
+          © 2026 Confide. Made with 💜 in Lisbon.
         </div>
       </div>
     </footer>

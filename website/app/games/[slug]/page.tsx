@@ -15,8 +15,12 @@ export async function generateMetadata({
   const game = getGameBySlug(slug);
   if (!game) return { title: "Game Not Found" };
   return {
-    title: `${game.title} — Social Games`,
+    title: game.title,
     description: game.description,
+    openGraph: {
+      title: `${game.title} — Confide`,
+      description: `${game.description} ${game.players} players, ${game.duration}, ${game.confrontation} confrontation.`,
+    },
   };
 }
 
