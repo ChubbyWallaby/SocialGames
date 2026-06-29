@@ -2,6 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { games, getGameBySlug, getAllSlugs } from "@/lib/games";
 
+const WHATSAPP_URL =
+  "https://wa.me/351912990758?text=Hi!%20I%27d%20like%20to%20join%20a%20Confide%20session";
+
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
 }
@@ -14,12 +17,15 @@ export async function generateMetadata({
   const { slug } = await params;
   const game = getGameBySlug(slug);
   if (!game) return { title: "Game Not Found" };
+
+  const desc = `Play ${game.title} on WhatsApp — ${game.description} Inspired by ${game.inspiration}. ${game.players} players, ${game.duration}, fully async. No apps needed.`;
+
   return {
-    title: game.title,
-    description: game.description,
+    title: `${game.title} — Play on WhatsApp with Friends`,
+    description: desc,
     openGraph: {
-      title: `${game.title} — Confide`,
-      description: `${game.description} ${game.players} players, ${game.duration}, ${game.confrontation} confrontation.`,
+      title: `${game.title} — Async WhatsApp Game for ${game.players} Players`,
+      description: desc,
     },
   };
 }
@@ -58,6 +64,35 @@ export default async function GameDetailPage({
 
   return (
     <div className="py-12 px-4">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Game",
+            name: game.title,
+            description: game.description,
+            numberOfPlayers: {
+              "@type": "QuantitativeValue",
+              minValue: parseInt(game.players.split("-")[0]),
+              maxValue: parseInt(game.players.split("-")[1]),
+            },
+            gamePlatform: "WhatsApp",
+            genre: "Social Deduction",
+            offers: {
+              "@type": "Offer",
+              price: "1.00",
+              priceCurrency: "EUR",
+              availability: "https://schema.org/InStock",
+            },
+            provider: {
+              "@type": "Organization",
+              name: "Confide",
+              url: "https://playconfide.com",
+            },
+          }),
+        }}
+      />
       <div className="max-w-3xl mx-auto">
         <Link
           href="/games"
@@ -71,6 +106,11 @@ export default async function GameDetailPage({
         </div>
 
         <h1 className="text-4xl md:text-5xl font-bold mb-3">{game.title}</h1>
+        <p className="text-lg text-muted mb-2">
+          A {game.confrontation.toLowerCase()}-confrontation{" "}
+          {game.elimination ? "elimination" : "non-elimination"} game for{" "}
+          {game.players} players on WhatsApp. Inspired by {game.inspiration}.
+        </p>
         <p className="text-xl text-muted mb-6 italic">
           &ldquo;{game.coreTension}&rdquo;
         </p>
@@ -107,6 +147,12 @@ export default async function GameDetailPage({
 
         <div className="mb-10">
           <h2 className="text-2xl font-bold mb-4">How It Works</h2>
+          <p className="text-muted mb-4">
+            Everything happens on WhatsApp — the group chat is your game room,
+            and private DMs with the host are where you make your secret moves.
+            Each step has a multi-hour window so no one needs to be online at the
+            same time.
+          </p>
           <ol className="space-y-4">
             {game.howItWorks.map((step, i) => (
               <li key={i} className="flex gap-4">
@@ -154,6 +200,41 @@ export default async function GameDetailPage({
               <dd className="font-medium">{game.duration}</dd>
             </div>
           </dl>
+        </div>
+
+        <div className="p-6 rounded-2xl bg-purple-50/50 mb-10">
+          <h2 className="text-lg font-bold mb-3">
+            Who is {game.title} for?
+          </h2>
+          <p className="text-foreground/80 leading-relaxed mb-3">
+            {game.title} is perfect for {game.bestFor.toLowerCase()}. If you
+            enjoy {game.inspiration.toLowerCase()} but want something you can
+            play asynchronously with friends who aren&apos;t always available at
+            the same time, this is your game.
+          </p>
+          <p className="text-foreground/80 leading-relaxed">
+            It runs entirely on WhatsApp over {game.duration} — no app
+            downloads, no video calls, no scheduling. Just message when you can.
+            Works great across time zones and for groups who are busy during the
+            week but still want a shared experience.
+          </p>
+        </div>
+
+        <div className="text-center py-8 mb-8 rounded-2xl bg-gradient-to-r from-purple-50 to-pink-50">
+          <h2 className="text-2xl font-bold mb-2">
+            Want to play {game.title}?
+          </h2>
+          <p className="text-muted mb-6">
+            Message us on WhatsApp and we&apos;ll get your group started.
+          </p>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold text-lg rounded-2xl hover:scale-105 hover:shadow-lg hover:shadow-green-200 transition-all"
+          >
+            Join via WhatsApp
+          </a>
         </div>
 
         <div className="flex items-center justify-between pt-8 border-t border-purple-100">
