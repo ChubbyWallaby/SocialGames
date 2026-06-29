@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import Link from "next/link";
 import "./globals.css";
 
@@ -16,35 +17,46 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://playconfide.com"),
   title: {
-    default: "Confide — Play Together, Anywhere",
+    default: "Confide — Social Deduction Games on WhatsApp",
     template: "%s — Confide",
   },
   description:
-    "WhatsApp-based social games for groups of 5-8 players. Fully async, no apps needed. €1 per person.",
+    "Play social deduction games like The Traitors, Mafia, and Survivor entirely on WhatsApp. Async gameplay for 5-8 friends across any timezone. No apps needed.",
   openGraph: {
     type: "website",
     siteName: "Confide",
-    title: "Confide — Play Together, Anywhere",
+    title: "Confide — Social Deduction Games on WhatsApp",
     description:
-      "Social deduction, strategy, and betrayal games that run entirely on WhatsApp. 5-8 players, 5-7 days, fully async.",
+      "Play social deduction games like The Traitors, Mafia, and Survivor entirely on WhatsApp. Async gameplay for 5-8 friends across any timezone. No apps needed.",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Confide — Play Together, Anywhere",
+    title: "Confide — Social Deduction Games on WhatsApp",
     description:
-      "Social deduction, strategy, and betrayal games that run entirely on WhatsApp. 5-8 players, 5-7 days, fully async.",
+      "Play social deduction games like The Traitors, Mafia, and Survivor entirely on WhatsApp. Async gameplay for 5-8 friends across any timezone. No apps needed.",
   },
   keywords: [
+    "games to play on WhatsApp",
+    "WhatsApp games for friends",
+    "social deduction games online",
+    "best social deduction games",
+    "async games for groups",
+    "games like The Traitors",
+    "Mafia game online",
+    "Werewolf game online",
+    "team building games remote",
+    "virtual team building games",
+    "games for different time zones",
+    "remote games no download",
+    "hidden role games",
+    "party games no app needed",
+    "text based party games",
+    "games to play in group chat",
+    "WhatsApp group games",
+    "deception games for friends",
     "confide",
-    "whatsapp games",
-    "async games",
-    "social deduction",
-    "group games",
-    "remote games",
-    "party games online",
-    "the mole game",
-    "survivor game whatsapp",
+    "play confide",
   ],
   robots: {
     index: true,
@@ -132,6 +144,16 @@ function Footer() {
                   FAQ
                 </Link>
               </li>
+              <li>
+                <Link href="/privacy" className="hover:text-primary transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="hover:text-primary transition-colors">
+                  Terms of Service
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -148,12 +170,43 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Confide",
+    url: "https://playconfide.com",
+    description:
+      "Async social deduction games played entirely on WhatsApp for groups of 5-8 friends.",
+    foundingLocation: {
+      "@type": "Place",
+      name: "Lisbon, Portugal",
+    },
+    sameAs: [],
+  };
+
+  const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      {GA_ID && (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+            strategy="afterInteractive"
+          />
+          <Script id="gtag-init" strategy="afterInteractive">
+            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
+          </Script>
+        </>
+      )}
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -4,3 +4,9 @@ node_modules/
 *.tsbuildinfo
 next-env.d.ts
 /tmp/
+
+# SEO research reference (not for deployment)
+CONFIDE_*.md
+CONFIDE_*.txt
+README_SEO_RESEARCH.md
+START_HERE.md
