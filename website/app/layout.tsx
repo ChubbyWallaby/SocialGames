@@ -192,6 +192,7 @@ export default function RootLayout({
   };
 
   const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+  const GADS_ID = process.env.NEXT_PUBLIC_GADS_ID;
 
   return (
     <html
@@ -206,6 +207,17 @@ export default function RootLayout({
           />
           <Script id="gtag-init" strategy="afterInteractive">
             {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
+          </Script>
+        </>
+      )}
+      {GADS_ID && (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${GADS_ID}`}
+            strategy="afterInteractive"
+          />
+          <Script id="gads-init" strategy="afterInteractive">
+            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GADS_ID}');`}
           </Script>
         </>
       )}
