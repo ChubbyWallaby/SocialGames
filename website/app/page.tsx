@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { TickerBand1, TickerBand2, TickerBand3 } from "@/app/background-sentences";
+import { WhatsAppButton } from "@/app/whatsapp-button";
 
 export const metadata: Metadata = {
   title: "Confide — Social Deduction Games on WhatsApp",
@@ -33,14 +34,12 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <WhatsAppButton
               href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold text-lg rounded-2xl hover:scale-105 hover:shadow-lg hover:shadow-green-200 transition-all"
             >
               Join via WhatsApp
-            </a>
+            </WhatsAppButton>
             <Link
               href="/games"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border-2 border-primary text-primary font-bold text-lg rounded-2xl hover:scale-105 hover:shadow-lg hover:shadow-purple-100 transition-all"
@@ -226,14 +225,12 @@ export default function Home() {
             Send us a message on WhatsApp and we&apos;ll get you into the next
             game. Takes 2 minutes — no signup forms, no waiting lists.
           </p>
-          <a
+          <WhatsAppButton
             href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-10 py-5 bg-[#25D366] text-white font-bold text-xl rounded-2xl hover:scale-105 hover:shadow-xl hover:shadow-green-200 transition-all"
           >
             Message us on WhatsApp
-          </a>
+          </WhatsAppButton>
         </div>
       </section>
     </div>

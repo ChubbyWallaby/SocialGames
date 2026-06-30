@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import Link from "next/link";
+import { WhatsAppButton } from "@/app/whatsapp-button";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -94,14 +95,12 @@ function Navbar() {
           >
             FAQ
           </Link>
-          <a
+          <WhatsAppButton
             href="https://wa.me/351912990758?text=Hi!%20I%27d%20like%20to%20join%20a%20Confide%20session"
-            target="_blank"
-            rel="noopener noreferrer"
             className="px-4 py-2 bg-[#25D366] text-white text-sm font-semibold rounded-full hover:opacity-90 transition-opacity"
           >
             Join Now
-          </a>
+          </WhatsAppButton>
         </div>
       </div>
     </nav>

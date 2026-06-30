@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { games, getGameBySlug, getAllSlugs } from "@/lib/games";
+import { WhatsAppButton } from "@/app/whatsapp-button";
 
 const WHATSAPP_URL =
   "https://wa.me/351912990758?text=Hi!%20I%27d%20like%20to%20join%20a%20Confide%20session";
@@ -227,14 +228,12 @@ export default async function GameDetailPage({
           <p className="text-muted mb-6">
             Message us on WhatsApp and we&apos;ll get your group started.
           </p>
-          <a
+          <WhatsAppButton
             href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold text-lg rounded-2xl hover:scale-105 hover:shadow-lg hover:shadow-green-200 transition-all"
           >
             Join via WhatsApp
-          </a>
+          </WhatsAppButton>
         </div>
 
         <div className="flex items-center justify-between pt-8 border-t border-purple-100">

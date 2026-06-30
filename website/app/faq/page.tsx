@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { WhatsAppButton } from "@/app/whatsapp-button";
 
 export const metadata: Metadata = {
   title: "FAQ — How to Play Social Games on WhatsApp",
@@ -108,14 +109,12 @@ export default function FaqPage() {
           <p className="text-lg text-muted mb-6">
             Still have questions?
           </p>
-          <a
+          <WhatsAppButton
             href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold text-lg rounded-2xl hover:scale-105 hover:shadow-lg hover:shadow-green-200 transition-all"
           >
             Ask us on WhatsApp
-          </a>
+          </WhatsAppButton>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { games } from "@/lib/games";
 import { TickerBand1, TickerBand2 } from "@/app/background-sentences";
+import { WhatsAppButton } from "@/app/whatsapp-button";
 
 export const metadata: Metadata = {
   title: "WhatsApp Social Deduction Games for Friends | Play Async",
@@ -119,14 +120,12 @@ export default function GamesPage() {
           <p className="text-lg text-muted mb-6">
             Found your game? Get in touch and we&apos;ll set up your session.
           </p>
-          <a
+          <WhatsAppButton
             href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold text-lg rounded-2xl hover:scale-105 hover:shadow-lg hover:shadow-green-200 transition-all"
           >
             Register via WhatsApp
-          </a>
+          </WhatsAppButton>
         </div>
       </div>
     </div>
